@@ -1,0 +1,87 @@
+﻿<Page x:Class="Practice.Pages.ReportPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Формирование отчета"
+      Background="SandyBrown">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <TextBlock Text="Формирование отчета" 
+                   FontSize="20" 
+                   FontWeight="Bold" 
+                   HorizontalAlignment="Center" 
+                   Margin="0,0,0,20" 
+                   Foreground="DarkSlateGray"/>
+
+        <!-- Фильтры -->
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,10">
+            <Label Content="Начальная дата:" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+            <DatePicker x:Name="StartDatePicker" Width="150" Margin="5,0" 
+                        BorderBrush="DarkSlateGray" 
+                        BorderThickness="1" 
+                        Background="WhiteSmoke"/>
+            <Label Content="Конечная дата:" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+            <DatePicker x:Name="EndDatePicker" Width="150" Margin="5,0" 
+                        BorderBrush="DarkSlateGray" 
+                        BorderThickness="1" 
+                        Background="WhiteSmoke"/>
+            <Label Content="Категория:" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+            <ComboBox x:Name="CategoryFilterComboBox" Width="200" Margin="5,0"
+                      DisplayMemberPath="name"
+                      SelectedValuePath="id"
+                      BorderBrush="DarkSlateGray" 
+                      BorderThickness="1" 
+                      Background="WhiteSmoke"/>
+        </StackPanel>
+
+        <!-- Поле для ввода имени файла -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,0,0,10">
+            <Label Content="Имя файла:" VerticalAlignment="Center" Foreground="DarkSlateGray"/>
+            <TextBox x:Name="FileNameTextBox" Width="200" Margin="5,0" 
+                     BorderBrush="DarkSlateGray" 
+                     BorderThickness="1" 
+                     Background="WhiteSmoke"
+                     VerticalContentAlignment="Center"
+                     Text="Отчет"/>
+        </StackPanel>
+
+        <!-- Кнопки -->
+        <StackPanel Orientation="Horizontal" Grid.Row="3" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button Content="Сформировать отчет" Click="GenerateReport_Click" Width="150" Margin="5"
+                    Background="DarkSlateGray" 
+                    Foreground="White" 
+                    BorderBrush="DarkSlateGray" 
+                    BorderThickness="1"
+                    Padding="10,5"
+                    FontWeight="Bold">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Cursor" Value="Hand"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" 
+                                            BorderBrush="{TemplateBinding BorderBrush}" 
+                                            BorderThickness="{TemplateBinding BorderThickness}">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="SlateGray"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </StackPanel>
+    </Grid>
+</Page>

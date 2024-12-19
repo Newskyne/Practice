@@ -1,0 +1,36 @@
+﻿<Page x:Class="Practice.Pages.CategoriesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="CategoriesPage"
+      Background="SandyBrown">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Фильтры и поиск -->
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <Label Content="Поиск:" VerticalAlignment="Center"/>
+            <TextBox x:Name="SearchTextBox" Width="300" Margin="5,0" TextChanged="SearchTextBox_TextChanged"/>
+        </StackPanel>
+
+        <!-- Компонент для отображения списка категорий -->
+        <ListView x:Name="CategoriesListView" Grid.Row="1" Margin="0,0,0,10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="50"/>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding name}" Width="200"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Кнопки добавления/редактирования -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+            <Button Content="Добавить" Width="100" Margin="5" Click="AddCategory_Click"/>
+            <Button Content="Редактировать" Width="100" Margin="5" Click="EditCategory_Click"/>
+            <Button Content="Удалить" Width="100" Margin="5" Click="DeleteCategory_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

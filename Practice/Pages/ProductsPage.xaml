@@ -1,0 +1,41 @@
+﻿<Page x:Class="Practice.Pages.ProductsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Продукция"
+      Background="SandyBrown">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <Label Content="Категория:" VerticalAlignment="Center"/>
+            <ComboBox x:Name="CategoryFilterComboBox" Width="200" Margin="5,0"
+                      DisplayMemberPath="name"
+                      SelectedValuePath="id"
+                      SelectionChanged="CategoryFilterComboBox_SelectionChanged"/>
+
+            <TextBox x:Name="SearchTextBox" Width="300" Margin="10,0"
+                     TextChanged="SearchTextBox_TextChanged"/>
+        </StackPanel>
+
+        <!-- Компонент для отображения списка продукции -->
+        <ListView x:Name="ProductsListView" Grid.Row="1" Margin="0,0,0,10">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="ID" DisplayMemberBinding="{Binding id}" Width="50"/>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding name}" Width="200"/>
+                    <GridViewColumn Header="Категория" DisplayMemberBinding="{Binding category.name}" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Кнопки добавления/редактирования -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" HorizontalAlignment="Right">
+            <Button Content="Добавить" Width="100" Margin="5" Click="AddProduct_Click"/>
+            <Button Content="Редактировать" Width="100" Margin="5" Click="EditProduct_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
