@@ -9,7 +9,13 @@
             <!-- Product ID -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Product ID:" VerticalAlignment="Center" Margin="0,0,5,0" />
-                <TextBox x:Name="ProductIdTextBox" Width="200" />
+                <TextBox x:Name="ProductIdTextBox" Width="200" TextChanged="ProductIdTextBox_TextChanged" />
+            </StackPanel>
+
+            <!-- Product Name -->
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBlock Text="Product Name:" VerticalAlignment="Center" Margin="0,0,5,0" />
+                <TextBox x:Name="ProductNameTextBox" Width="200" IsReadOnly="True" />
             </StackPanel>
 
             <!-- User ID -->
@@ -21,19 +27,19 @@
             <!-- Price -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Price:" VerticalAlignment="Center" Margin="0,0,5,0" />
-                <TextBox x:Name="PriceTextBox" Width="200" />
+                <TextBox x:Name="PriceTextBox" Width="200" TextChanged="PriceTextBox_TextChanged" />
             </StackPanel>
 
             <!-- Count -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Count:" VerticalAlignment="Center" Margin="0,0,5,0" />
-                <TextBox x:Name="CountTextBox" Width="200" />
+                <TextBox x:Name="CountTextBox" Width="200" TextChanged="CountTextBox_TextChanged" />
             </StackPanel>
 
             <!-- Sum -->
             <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                 <TextBlock Text="Sum:" VerticalAlignment="Center" Margin="0,0,5,0" />
-                <TextBox x:Name="SumTextBox" Width="200" />
+                <TextBox x:Name="SumTextBox" Width="200" IsReadOnly="True" />
             </StackPanel>
 
             <!-- Date Order -->
